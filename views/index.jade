@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  form
+    input( type='text', name='strike_url', ng-model="url" )
+    input( type='button', name='submit_strike_url', value='Submit' ng-click="addStrike()" )
+
+  div( ng-repeat="standing in standings | orderBy: '-score'" )
+    p {{standing.domain}} - score: {{standing.score}}
+
+  div( ng-repeat="strike in strikes" )
+    p {{strike.domain}} - url: {{strike.url}}
+
+  input( type='button', name='', value='Test' ng-click="checkStandings()" )
