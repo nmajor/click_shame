@@ -1,10 +1,4 @@
-DEBUG=myapp ./bin/www
-DEBUG=express:* ./bin/www
-
-Make www and non-www save as the same
-Look up standings by domain and link
-
-
+NODE_ENV=development DEBUG=express:* ./bin/www
 
 Chrome Extension:
 - .gitignore – As we all know, this lets you tell git which files/paths to ignore. Yeoman ships with some sane defaults for this.

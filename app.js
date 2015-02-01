@@ -7,15 +7,15 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 
+var mongoose_uri = 'mongodb://localhost/click_shame_'+process.env.NODE_ENV;
 var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/click_shame');
+var mongoose = require('mongoose');
+mongoose.connect(mongoose_uri);
 
 var app = express();
 app.locals.url = require('url');
 app.locals.string_formatter = require("./helpers/string_formatter");
 app.locals.application_helper = require("./helpers/application_helper");
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,10 +29,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var Strike  =  require('./models/strike');
+var Domain  = require('./models/domain');
+var Reference  = require('./models/reference');
+
 // Make our db accessible to our router
 app.use(function(req,res,next){
-    req.db = db;
-    next();
+  next();
 });
 
 app.use('/', routes);
