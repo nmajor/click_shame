@@ -3,8 +3,8 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 var strikeSchema = new Schema({
-  domain       : { type: ObjectId, ref: 'Domain' },
-  reference    : { type: ObjectId, ref: 'Reference' },
+  _domain       : { type: ObjectId, ref: 'Domain' },
+  _reference    : { type: ObjectId, ref: 'Reference' },
   domain_name  : String,
   address      : String,
   full_address : String

@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 var referenceSchema = new Schema({
-  domain     : { type: ObjectId, ref: 'Domain' },
+  _domain     : { type: ObjectId, ref: 'Domain' },
   address    : String,
   score      : Number
 });

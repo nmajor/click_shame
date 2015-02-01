@@ -13,8 +13,9 @@ angular.module('clickShame', [])
   //     return data;
   //   });
   // };
-  o.get = function(domain) {
-    return $http.get('/domains/'+domain).success(function(data){
+  o.get = function(d) {
+    console.log(d);
+    return $http.get('/domain', {params: {"domain": d}}).success(function(data){
       console.log(data);
       return data;
     });
@@ -26,6 +27,12 @@ angular.module('clickShame', [])
   o.getAll = function() {
     return $http.get('/references').success(function(data){
       angular.copy(data, o.references);
+    });
+  };
+  o.get = function(r) {
+    return $http.get('/reference', {params: {"reference": r}}).success(function(data){
+      console.log(data);
+      return data;
     });
   };
   return o;
@@ -75,6 +82,10 @@ function($scope, domainFactory, referenceFactory, strikeFactory){
 
   $scope.checkDomain = function(){
     domainFactory.get("www.buzzfeed.com");
+  };
+
+  $scope.checkReference = function(){
+    referenceFactory.get("https://upworthy.com/salmon-crab-lobster-nothing-better-right-well-theres-a-dark-side-you-should-know-about");
   };
 
 }]);
