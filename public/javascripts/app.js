@@ -85,7 +85,7 @@ function($scope, domainFactory, referenceFactory, strikeFactory){
   };
 
   $scope.checkReference = function(){
-    referenceFactory.get("https://upworthy.com/salmon-crab-lobster-nothing-better-right-well-theres-a-dark-side-you-should-know-about");
+    referenceFactory.get("http://www.buzzfeed.com/briangalindo/omg-was-chris-evans-a-model-for-mystery-date#.vrBrOlADX");
   };
 
 }]);

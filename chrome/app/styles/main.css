@@ -1,3 +1,22 @@
-body {
-  padding: 20px;
+.clickshame-reference {
+  border: 1px solid #FD5B5B;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+.clickshame-reference:after {
+  content: "clickshame";
+  padding-left: 4px;
+}
+.clickshame-domain-banner {
+  padding: 3px 10px 5px 10px;
+  background: #FD5B5B;
+  color: white;
+}
+.clickshame-close {
+  float: right;
+}
+.clickshame-close:hover {
+  cursor: pointer;
 }

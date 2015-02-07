@@ -21,3 +21,20 @@ Chrome Extension:
 
 Run this to make it update live:
 grunt debug
+
+
+Primary
+- Only allow strike post requests from the home page
+- Add css tag when the specific address doesnt have strikes but the domain does
+- Add a hover tooltip with offending details
+- Design home page
+- Build home page
+- Create an icon
+
+Secondary
+- Lock down strike post request to only website and installed chrome extensions
+- Submit strike through extension
+- Add different css options in extension options
+
+
+

@@ -17,6 +17,7 @@
     "mongodb": "*",
     "mongoose": "*",
     "supertest": "*",
-    "mocha": "*"
+    "mocha": "*",
+    "cors": "*"
   }
 }

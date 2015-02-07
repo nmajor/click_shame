@@ -21,7 +21,7 @@ strikeSchema.methods.create_or_update_domain = function create_or_update_domain(
 
   strike.model('Strike').count({domain_name: strike.domain_name}, function(err, count){
     Domain.update({name: strike.domain_name}, {score: count}, {upsert: true}, function(err, d){
-      Strike.update({_id: strike._id}, {domain: d._id}, {});
+      Strike.update({_id: strike._id}, {_domain: d._id}, {});
       strike.create_or_update_reference();
     });
   });
@@ -36,7 +36,7 @@ strikeSchema.methods.create_or_update_reference = function create_or_update_refe
 
   strike.model('Strike').count({address: strike.address}, function(err, count){
     Domain.findOne({name: strike.domain_name}, function(err, domain){
-      Reference.update({address: strike.address}, {score: count, domain: domain._id}, {upsert: true}, function(err, r){
+      Reference.update({address: strike.address}, {score: count, _domain: domain._id}, {upsert: true}, function(err, r){
         Strike.update({_id: strike._id}, {reference: r._id}, {}, function(){
 
         });

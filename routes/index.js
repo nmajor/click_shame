@@ -35,7 +35,8 @@ router.get('/domains', function(req, res, next) {
 // Ger specific reference
 router.get('/reference', function(req, res, next) {
   var string_formatter = req.app.locals.string_formatter();
-  Reference.findOne({address: string_formatter.stripUrl(req.query.reference)}, function (err, doc) {
+  Reference.findOne({address: string_formatter.stripUrl(req.query.reference)}).populate('_domain').exec( function (err, doc) {
+    console.log(doc);
     if ( doc === null ) { res.json({}); } else {
       doc = doc.toObject();
       doc.reference = req.query.reference;
