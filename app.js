@@ -8,11 +8,14 @@ var cors = require('cors');
 
 var routes = require('./routes/index');
 
-var mongoose_uri = process.env.MONGO || 'mongodb://localhost/click_shame_development';
 var mongoose_port = process.env.MONGO_PORT || 27017;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-mongoose.connect(mongoose_uri, mongoose_port);
+if (app.get('env') === 'development') {
+  mongoose.connect('mongodb://localhost/click_shame_development', 27017);
+} else {
+  mongoose.connect(MONGO, MONGO_PORT);
+}
 
 var app = express();
 app.locals.url = require('url');
