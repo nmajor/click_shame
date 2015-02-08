@@ -8,7 +8,8 @@ var cors = require('cors');
 
 var routes = require('./routes/index');
 
-var mongoose_port = process.env.MONGO_PORT || 27017;
+var app = express();
+
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 if (app.get('env') === 'development') {
@@ -17,7 +18,6 @@ if (app.get('env') === 'development') {
   mongoose.connect(MONGO, MONGO_PORT);
 }
 
-var app = express();
 app.locals.url = require('url');
 app.locals.string_formatter = require("./helpers/string_formatter");
 app.locals.application_helper = require("./helpers/application_helper");
