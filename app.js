@@ -12,10 +12,10 @@ var app = express();
 
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-if (app.get('env') === 'development') {
+if (process.env.NODE_ENV === 'development') {
   mongoose.connect('mongodb://localhost/click_shame_development', 27017);
 } else {
-  mongoose.connect(MONGO, MONGO_PORT);
+  mongoose.connect(process.env.MONGO, process.env.MONGO_PORT);
 }
 
 app.locals.url = require('url');
