@@ -9,9 +9,10 @@ var cors = require('cors');
 var routes = require('./routes/index');
 
 var mongoose_uri = process.env.MONGO || 'mongodb://localhost/click_shame_development';
+var mongoose_port = process.env.MONGO_PORT || 27017;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-mongoose.connect(mongoose_uri);
+mongoose.connect(mongoose_uri, mongoose_port);
 
 var app = express();
 app.locals.url = require('url');
