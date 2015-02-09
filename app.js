@@ -5,19 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-
+var config = require('./config');
 var routes = require('./routes/index');
-
-var app = express();
 
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-if (process.env.NODE_ENV === 'development') {
-  mongoose.connect('mongodb://localhost/click_shame_development', 27017);
-} else {
-  mongoose.connect(process.env.MONGO, process.env.MONGO_PORT);
-}
+console.log(config.mongo);
+mongoose.connect(config.mongo || 'mongodb://localhost/click_shame_development');
 
+var app = express();
 app.locals.url = require('url');
 app.locals.string_formatter = require("./helpers/string_formatter");
 app.locals.application_helper = require("./helpers/application_helper");
