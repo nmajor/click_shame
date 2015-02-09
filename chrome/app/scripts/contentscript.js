@@ -1,9 +1,7 @@
 'use strict';
 
-console.log('\'Allo \'Allo! Content script');
-
-function CsConfig() {
-  var o = { baseUrl: 'http://localhost:3000' };
+function csConfig() {
+  var o = { baseUrl: 'http://clickshame.nmajor.com' };
   return o;
 }
 
@@ -15,7 +13,7 @@ function fullUriFromHref( url, href ) {
   }
 }
 
-function SendRequest(method, url, elm, callback) {
+function SendRequest(method, url, elm, callback, data) {
   var request = new XMLHttpRequest();
   request.open('GET', url, true);
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
@@ -27,21 +25,21 @@ function SendRequest(method, url, elm, callback) {
       }
     }
   };
-  request.send();
+  request.send(data);
 }
 
 function GetReferenceFromElement(elm, callback) {
-  var url = new CsConfig().baseUrl+'/reference?reference='+elm.href;
+  var url = new csConfig().baseUrl+'/reference?reference='+elm.href;
   new SendRequest('GET', url, elm, callback);
 }
 
 function GetReference(reference, callback) {
-  var url = new CsConfig().baseUrl+'/reference?reference='+reference;
+  var url = new csConfig().baseUrl+'/reference?reference='+reference;
   new SendRequest('GET', url, {}, callback);
 }
 
 function GetDomain(domain, callback) {
-  var url = new CsConfig().baseUrl+'/domain?domain='+domain;
+  var url = new csConfig().baseUrl+'/domain?domain='+domain;
   new SendRequest('GET', url, {}, callback);
 }
 
@@ -65,7 +63,6 @@ function PaintReferenceBanner( response ) {
 }
 
 function GetBanner() {
-  console.log(document.URL);
   new GetReference(document.URL, function(request){
     var response = JSON.parse(request.response);
     if ( response.score && response.score > 0 ) {
@@ -88,18 +85,16 @@ function PaintLink(request, elm) {
   }
 }
 
-
 function LoadShame(){
   new GetBanner();
   var links = document.getElementsByTagName('a');
   var linkUri;
   for(var i=0; i<links.length; i++){
     linkUri = fullUriFromHref( document.location.origin, links[i].href );
-    console.log('blah');
-    console.log(linkUri);
     if ( !linkUri || linkUri.indexOf(document.url) > -1 ) { continue; }
 
     new GetReferenceFromElement(links[i], PaintLink);
   }
 }
+
 new LoadShame();

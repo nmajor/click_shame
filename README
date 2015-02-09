@@ -37,4 +37,4 @@ Secondary
 - Add different css options in extension options
 
 
-
+sudo forever start ./bin/www PORT=80 MONGO='mongodb://clickshame:jg0(Hf08w0jf9HG*uf0k29fj0doksl@ds041671.mongolab.com:41671/clickshame_production'
