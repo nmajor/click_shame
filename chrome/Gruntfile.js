@@ -281,7 +281,7 @@ module.exports = function (grunt) {
         options: {
           archive: function() {
             var manifest = grunt.file.readJSON('app/manifest.json');
-            return 'package/CLick Shame-' + manifest.version + '.zip';
+            return 'package/Click Shame Beta-' + manifest.version + '.zip';
           }
         },
         files: [{

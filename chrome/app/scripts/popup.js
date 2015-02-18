@@ -1,7 +1,6 @@
 'use strict';
 
 function strikeThis() {
-  console.log('heyblahstrike');
   chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
     var baseUrl = 'http://clickshame.nmajor.com';
     var data = 'address='+tabs[0].url;

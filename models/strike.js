@@ -5,6 +5,7 @@ var ObjectId = Schema.ObjectId;
 var strikeSchema = new Schema({
   _domain       : { type: ObjectId, ref: 'Domain' },
   _reference    : { type: ObjectId, ref: 'Reference' },
+  _identity    : { type: ObjectId, ref: 'Identity' },
   domain_name  : String,
   address      : String,
   full_address : String
