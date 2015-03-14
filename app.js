@@ -34,7 +34,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 var Strike  =  require('./models/strike');
 var Domain  = require('./models/domain');
 var Reference  = require('./models/reference');
-var Identity  = require('./models/identity');
 
 // Make our db accessible to our router
 app.use(function(req,res,next){

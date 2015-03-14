@@ -1,8 +1,22 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+.circle {
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+}
+.actionable { margin-bottom: 40px; text-align: center; }
+.shame {
+  background: #FF7878;
+  margin: 2px;
+  padding: 8px 0;
+}
+.shame > div { display: inline-block; }
+.shame > .reference {  }
+.shame > .score {}

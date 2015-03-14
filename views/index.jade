@@ -1,24 +1,41 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div( class='stackable' )
+    div( class='container' )
+      div( class='row' )
+        div( class='col-md-8' )
 
-  form
-    input( type='text', name='strike_address', ng-model="address" )
-    input( type='button', name='submit_strike', value='Submit' ng-click="createStrike()" )
+          h1
+            |Clickshame.com
+          div
+            |Ever wish you could do something about clickbait? Now you can. Report clickbait and other shady journalistic practices. Help curate the internet.
 
-  h3 Domains
-  div( ng-repeat="domain in domains | orderBy: '-score'" )
-    p {{domain.name}} - score: {{domain.score}}
+          h3
+            |Top Clickbaiters by Domain
+          div( ng-repeat="domain in domains | orderBy: '-score'" )
+            div( class='row shame' )
+              div( class='reference col-xs-10' )
+                {{domain.name}}
+              div( class='score col-xs-2 text-center' )
+                {{domain.score}}
 
-  h3 References
-  div( ng-repeat="reference in references | orderBy: '-score'" )
-    p {{reference.address}} - score: {{reference.score}}
+        aside( class='col-md-4' )
+          div( class='actionable' )
+            div
+              img( src='http://lorempixel.com/100/100/', class='circle' )
+            div
+              |Install the Chrome Extension.
 
-  h3 Strikes
-  div( ng-repeat="strike in strikes" )
-    p {{strike.full_address}}
+          div( class='actionable' )
+            div
+              img( src='http://lorempixel.com/100/100/', class='circle' )
+            div
+              |Report click-bait.
 
-  input( type='button', name='', value='Test Get Domain' ng-click="checkDomain()" )
-  input( type='button', name='', value='Test Get Reference' ng-click="checkReference()" )
+          div( class='actionable' )
+            div
+              img( src='http://lorempixel.com/100/100/', class='circle' )
+            div
+              |Don't click on click-bait
+

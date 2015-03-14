@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  form
+    input( type='text', name='strike_address', ng-model="address" )
+    input( type='button', name='submit_strike', value='Submit' ng-click="createStrike()" )
+
+  h3 Domains
+  div( ng-repeat="domain in domains | orderBy: '-score'" )
+    p {{domain.name}} - score: {{domain.score}}
+
+  h3 References
+  div( ng-repeat="reference in references | orderBy: '-score'" )
+    p {{reference.address}} - score: {{reference.score}}
+
+  h3 Strikes
+  div( ng-repeat="strike in strikes" )
+    p {{strike.full_address}}
+
+  input( type='button', name='', value='Test Get Domain' ng-click="checkDomain()" )
+  input( type='button', name='', value='Test Get Reference' ng-click="checkReference()" )

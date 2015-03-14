@@ -4,7 +4,6 @@ var router = express.Router();
 var Strike  =  require('../models/strike');
 var Domain  = require('../models/domain');
 var Reference  = require('../models/reference');
-var Identity  = require('../models/identity');
 
 
 /* GET home page. */
@@ -72,18 +71,6 @@ router.post('/strikes', function(req, res, next) {
   strike.save(function (err, doc) {
     if (err) console.log(err);
     strike.create_or_update_relationships();
-    res.json(doc);
-  });
-});
-
-router.post('/identities', function(req, res, next) {
-  if ( req.body.source !== 'chrome') {
-    res.status(400).send({ error: 'Invalid request parameters' });
-    return;
-  }
-
-  Identity.create({source: req.body.source}, function(err, doc) {
-    if (err) console.log(err);
     res.json(doc);
   });
 });
