@@ -11,12 +11,29 @@ a {
   -webkit-border-radius: 150px;
   -moz-border-radius: 150px;
 }
-.actionable { margin-bottom: 40px; text-align: center; }
+.actionable {
+  margin-bottom: 20px;
+  text-align: center;
+  color: black;
+  background: white;
+  padding: 30px;
+}
 .shame {
-  background: #FF7878;
   margin: 2px;
   padding: 8px 0;
 }
 .shame > div { display: inline-block; }
 .shame > .reference {  }
 .shame > .score {}
+
+#sidebar {
+  position: fixed;
+}
+.full-block{ padding: 50px 0; }
+.full-block h1 { margin-top: 0; margin-bottom: 15px; }
+.full-block h2 { margin-top: 0; margin-bottom: 15px; }
+.full-block h3 { margin-top: 0; margin-bottom: 15px; }
+
+.white { color: black; background: white; }
+.dark { background: #3A3A3A; color: #FFF; }
+.light { background: #F4F4F4; color: 424242; }

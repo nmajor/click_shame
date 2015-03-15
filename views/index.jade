@@ -2,40 +2,55 @@ extends layout
 
 block content
   div( class='stackable' )
-    div( class='container' )
-      div( class='row' )
-        div( class='col-md-8' )
-
+    div( class='row full-block prime-block dark' )
+      div( class='container' )
+        div( class='col-md-8 ' )
           h1
             |Clickshame.com
           div
             |Ever wish you could do something about clickbait? Now you can. Report clickbait and other shady journalistic practices. Help curate the internet.
 
+        aside( class='col-md-4' )
+          div( id='sidebar' )
+            div( class='actionable' )
+              div
+                img( src='http://lorempixel.com/80/80/', class='circle' )
+              div
+                a( href='https://chrome.google.com/webstore/detail/click-shame/gdpbbpbajgcoacickfjfjnkebimlogne' )
+                  |Install the Chrome Extension.
+
+            div( class='actionable' )
+              div
+                img( src='http://lorempixel.com/80/80/', class='circle' )
+              div
+                |Report click-bait.
+
+            div( class='actionable' )
+              div
+                img( src='http://lorempixel.com/80/80/', class='circle' )
+              div
+                |Don't click on click-bait
+
+    div( class='row full-block light' )
+      div( class='container' )
+        div( class='col-md-8 ' )
+          h3
+            |Top Clickbaiters by Reference
+          div( ng-repeat="reference in references | orderBy: '-score'" )
+            div( class='row shame dark' )
+              div( class='reference col-xs-10' )
+                {{reference.address}}
+              div( class='score col-xs-2 text-center' )
+                {{reference.score}}
+
+    div( class='row full-block light' )
+      div( class='container' )
+        div( class='col-md-8 ' )
           h3
             |Top Clickbaiters by Domain
           div( ng-repeat="domain in domains | orderBy: '-score'" )
-            div( class='row shame' )
+            div( class='row shame dark' )
               div( class='reference col-xs-10' )
                 {{domain.name}}
               div( class='score col-xs-2 text-center' )
                 {{domain.score}}
-
-        aside( class='col-md-4' )
-          div( class='actionable' )
-            div
-              img( src='http://lorempixel.com/100/100/', class='circle' )
-            div
-              |Install the Chrome Extension.
-
-          div( class='actionable' )
-            div
-              img( src='http://lorempixel.com/100/100/', class='circle' )
-            div
-              |Report click-bait.
-
-          div( class='actionable' )
-            div
-              img( src='http://lorempixel.com/100/100/', class='circle' )
-            div
-              |Don't click on click-bait
-

@@ -1,9 +1,6 @@
+input.middle:focus { outline-width: 0; }
 .clickshame-reference {
-  border: 1px solid #FD5B5B;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  padding: 0 2px;
+  background-color: rgba(253, 91, 91, 0.3);
 }
 .clickshame-reference:after {
   padding-left: 4px;
@@ -19,3 +16,10 @@
 .clickshame-close:hover {
   cursor: pointer;
 }
+#strike-this {
+  padding: 5px 20px;
+  background: #FE5B5B;
+  border: 0;
+  color: #FFF;
+}
+#strike-this:hover { background: #E24A4A; }
